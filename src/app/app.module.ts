@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { CommonModule } from '@angular/common';
   FormsModule,
   HttpClientModule,
   CommonModule,
-  ReactiveFormsModule 
+  ReactiveFormsModule,
+  ToastrModule.forRoot(), 
   ],
   providers: [
     provideClientHydration()
