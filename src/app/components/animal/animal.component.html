@@ -35,11 +35,38 @@
                         <td>{{item.edad}}</td>
                         <td>{{item.tipo}}</td>
                         <td>{{item.fecha}}</td>
+                        <td><button type="button" class="btn btn-primary" (click)="toggleEditAnimal(item._id)">
+                                <i class="bi bi-pencil-square"></i>
+                            </button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
+        <!-- Modal Edit Animal -->
+        <form *ngIf="editableAnimal" class="card p-2" (ngSubmit)="updateAnimalEntry()" [formGroup]="animalForm">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp"
+                    placeholder="Nombre del animal" formControlName="nombre">
+                </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" placeholder="Edad animal"
+                    formControlName="edad">
+                </div>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo</label>
+                <input type="text" class="form-control" id="tipo" placeholder="Tipo de animal"
+                    formControlName="tipo">
+                </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" class="form-control" id="fecha" placeholder="Fecha" formControlName="fecha">
+                </div>
+             <div class="input-group justify-content-center md-12">
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                </div>
+        </form>
         <!-- Modal New Animal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -52,15 +79,18 @@
                         <form class="card p-2" (ngSubmit)="newAnimalEntry()" [formGroup]="animalForm">
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del animal" formControlName="nombre">
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del animal"
+                                    formControlName="nombre">
                             </div>
                             <div class="mb-3">
                                 <label for="edad" class="form-label">Edad</label>
-                                <input type="number" class="form-control" id="edad" placeholder="Edad animal" formControlName="edad">
+                                <input type="number" class="form-control" id="edad" placeholder="Edad animal"
+                                    formControlName="edad">
                             </div>
                             <div class="mb-3">
                                 <label for="tipo" class="form-label">Tipo</label>
-                                <input type="text" class="form-control" id="tipo" placeholder="Tipo de animal" formControlName="tipo">
+                                <input type="text" class="form-control" id="tipo" placeholder="Tipo de animal"
+                                    formControlName="tipo">
                             </div>
                             <div class="mb-3">
                                 <label for="fecha" class="form-label">Fecha</label>
