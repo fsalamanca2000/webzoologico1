@@ -121,5 +121,14 @@ export class AnimalComponent implements OnInit { // Asegúrate de implementar On
     );
     this.editableAnimal = !this.editableAnimal;
   }
+  deleteAnimalEntry(id: any) {
+    console.log(id)
+    this.animalService.deleteAnimal(id).subscribe(
+      () => {
+        //Enviando mensaje de confirmación
+        this.newMessage("Animal eliminado");
+      }
+    );
+  }
 
 }
